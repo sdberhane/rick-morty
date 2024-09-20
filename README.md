@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Rick and Morty Feed
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React application that fetches and displays a feed of characters from the [Rick and Morty API](https://rickandmortyapi.com/documentation/). The app includes features for sorting and filtering characters based on their name, creation date, and status, and it implements pagination to navigate through the list of characters.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Character Feed:** Displays a list of characters fetched from the Rick and Morty API.
+- **Sorting:** Sorts characters by name (alphabetically) or by date created (newest to oldest, oldest to newest).
+- **Filtering:** Filters characters by their status (Alive, Dead, Unknown).
+- **Pagination:** Navigate through the character list with pagination controls.
+- **Day/Night Mode:** Toggle between light and dark modes for better user experience.
+- **Persistent Theme:** The selected day/night theme is stored in `localStorage`, so the preferred theme persists even after refreshing the page.
 
-### `npm start`
+## Decisions/Challenges
+Pretty simple so not many technical challenges faced. My main decision was based on the tradeoff of efficiency vs more rigourous filering and sorting. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+As I saw it, my options were to either lazy load the data and fetch as the user requested or fetch all data and display as user requested. The former would yield a more efficient solution but wouldn't have the capability to sort/filter on the whole dataset - only the data that had been loaded in. The latter would have that capability but would be less efficient to render.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Because this was a relatively small dataset, I opted for more thorough solution and fetched all at once. Given larger data and the desire to sort on the whole dataset, I might look into a sorting/filtering option through the API to reduce the amount of client-side processing.
 
-### `npm test`
+## How to Run the Project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
+- Node.js (v14 or higher)
+- npm
 
-### `npm run build`
+### Steps
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/<your-username>/rick-morty-feed.git
+   cd rick-morty-feed
+2. **Install Dependencies**
+    ```bash
+    npm install
+3. **Run Project Locally**
+    ```bash
+    npm start
+This will start a dev server that will default to location http://localhost:3000
